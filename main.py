@@ -127,10 +127,13 @@ def main(data_name, map_name, bidirectional=True, having_pedestrian=True):
 
 if __name__ == '__main__':
     
-    data_name = 'crowds_zara03'
+    # data_name = 'crowds_zara03'
     bidirectional = True
     # bidirectional = False
     having_pedestrian = True
     # having_pedestrian = False
-    map_name = 'B' # prepare several maps with different names
-    main()
+    # map_name = 'B'# prepare several maps with different names
+
+    for data_name in ['crowds_zara01', 'crowds_zara02', 'crowds_zara03']:
+        for map_name in ['A', 'B', 'C']:
+            main(data_name, map_name)
