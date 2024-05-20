@@ -121,13 +121,16 @@ class OccupancyGrid:
 class TrajReader:
     """Read trajectories, interpolate"""
 
-    def __init__(self, data_set_name, delta_t=0.4):
+    def __init__(self, data_set_name, delta_t=0.4, full_traj_path = None):
         self.dataset_name = data_set_name
         print(self.dataset_name)
         self.delta_t = delta_t
 
         # get trajectory folder
-        self.traj_path = os.path.join(os.getcwd(), 'data/{}/'.format(self.dataset_name))
+        if full_traj_path:
+            self.traj_path = full_traj_path
+        else:
+            self.traj_path = os.path.join(os.getcwd(), 'data/{}/'.format(self.dataset_name))
         # print('get trajectory path')
 
         # get dataset from the txt files
